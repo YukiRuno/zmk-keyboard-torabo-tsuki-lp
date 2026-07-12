@@ -1,3 +1,4 @@
+#include <dt-bindings/zmk/input_transform.h>
 #include <input/processors.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
@@ -18,10 +19,9 @@
     scroll_layer {
         layers = <4>;
 
-        /* スクロール化 → 左右だけ反転 → スクロール速度を1/8 */
         input-processors =
             <&zip_xy_to_scroll_mapper>,
-            <&zip_x_scaler -1 1>,
+            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,
             <&zip_scroll_scaler 1 8>;
     };
 };
