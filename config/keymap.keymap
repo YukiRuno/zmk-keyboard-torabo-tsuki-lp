@@ -19,13 +19,13 @@
         <&zip_xy_scaler 1 2>;
 
     scroll_layer {
-        layers = <4>;
+    layers = <4>;
 
-        /* スクロール設定はそのまま */
-        input-processors =
-            <&zip_xy_to_scroll_mapper>,
-            <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,
-            <&zip_scroll_scaler 1 16>;
+    input-processors =
+        <&zip_xy_scaler 1 4>,
+        <&zip_xy_to_scroll_mapper>,
+        <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,
+        <&zip_scroll_scaler 1 16>;
     };
 };
 
