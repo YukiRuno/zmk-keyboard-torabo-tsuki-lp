@@ -13,16 +13,17 @@
 /* レイヤー4の間だけ、トラックボールのXY移動を横・縦スクロールへ変換 */
 
 &pointing_listener {
-    /* マウス速度を半分 */
+    /* 通常のマウス移動：向きは変更せず、速度だけ半分 */
     input-processors = <&zip_xy_scaler 1 2>;
 
     scroll_layer {
         layers = <4>;
 
+        /* スクロール時だけ左右反転し、速度を1/16へ落とす */
         input-processors =
             <&zip_xy_to_scroll_mapper>,
             <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,
-            <&zip_scroll_scaler 1 8>;
+            <&zip_scroll_scaler 1 16>;
     };
 };
 
